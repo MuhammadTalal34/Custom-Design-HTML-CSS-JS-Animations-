@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Game  </title>
+    <link rel="stylesheet" href="../Styling/style.css">
+</head>
+
+<body>
+    <!-- Main Container for Game -->
+    <div class="container">
+        <div class="kid"></div>
+
+        <!-- Bear -->
+        <div class="bear"></div>
+
+        <!-- Stone -->
+        <div class="stone" id="stone"></div>
+
+        <!-- Throw Stone Button -->
+
+        <!-- Rain effect -->
+        <div class="rain"></div>
+
+        <!-- Flying plane -->
+        <div class="plane" id="plane">
+            <img class="cloud" src="../Images/Clouds.png" alt="Flying Plane">
+        </div>
+        <div style="position: absolute; top: 2%; right: 1%;">
+            <button id="playSoundButton">Music Off</button> <!-- Initially set to Music Off -->
+        </div>
+        <!-- Curvy Playground at the bottom -->
+        <div class="playground">
+            <div class="trees">
+                <img class="image tree-1" src="../Images/Tree.png" alt="Tree 1">
+                <img class="image tree-2" src="../Images/Tree.png" alt="Tree 2">
+                <img class="image tree-3" src="../Images/Tree.png" alt="Tree 3">
+                <img class="image tree-4" src="../Images/Tree.png" alt="Tree 4">
+                <img class="image tree-5" src="../Images/Tree.png" alt="Tree 5">
+            </div>
+        </div>
+        <div style="display: flex; width: fit-content;">
+            <img src="../Images/Baby.png" class="baby" alt="baby" srcset="">
+            <a class="bear"></a>
+        </div>
+    </div>
+
+    <!-- Audio element for sound -->
+    <audio id="backgroundSound" loop>
+        <source src="../Sounds/Playground.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="../Logic/gameLogic.js"></script>
+    
+</body>
+
+</html>

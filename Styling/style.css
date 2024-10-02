@@ -1,0 +1,234 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* Prevent scrollbars */
+}
+
+/* Main container */
+.container {
+    background: linear-gradient(to top, #98d8e5, #f4f9fc);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+/* Rain effect */
+.rain {
+    position: absolute;
+    top: 15%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Allow clicks through the rain */
+    overflow: hidden;
+}
+
+.drop {
+    position: absolute;
+    border-bottom-left-radius: 2%;
+    border-bottom-right-radius: 2%;
+    width: 8px;
+    height: 15px;
+    background: rgba(226, 221, 221, 0.6);
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* Tree section styling */
+.trees {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    position: absolute;
+    bottom: 60px;
+    /* Adjusted to stick trees to the ground */
+}
+
+/* Animation for the plane */
+.plane {
+    position: relative;
+    top: 15vh;
+    left: 0vw;
+    animation: fly 60s linear infinite;
+    /* Move left to right */
+}
+
+/* Banner-style button */
+#playSoundButton {
+    border: none;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #007bff;
+    /* Sky blue color */
+    font-size: 20px;
+    padding: 15px 30px;
+    border-radius: 25px;
+    /* Rounded corners */
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    position: relative;
+    z-index: 10;
+    /* Ensure it's above other elements */
+}
+
+#playSoundButton:hover {
+    background-color: rgba(200, 230, 255, 0.8);
+    /* Lighten on hover */
+    transform: scale(1.05);
+}
+
+/* Curvy Playground area styling */
+.playground {
+    width: 100%;
+    height: 50%;
+    background-image: url('../Images/Playground.png');
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    background-attachment: fixed;
+    background-size: cover;
+    position: fixed;
+}
+
+/* Styling for flying object */
+.plane img {
+    width: 100vw;
+    filter: drop-shadow(5px 5px 5px rgba(105, 145, 230, 0.5));
+}
+
+/* Cloud background styling */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #87D7F8;
+    background-size: cover;
+    opacity: 1;
+    background-position-y: center;
+    background-clip: padding-box;
+    background-position-x: left;
+    z-index: 0;
+}
+
+.tree-5 {
+    width: 300px;
+    position: relative;
+    bottom: 40px;
+}
+
+.tree-4 {
+    width: 230px;
+    position: relative;
+    bottom: 20px;
+}
+
+.tree-3 {
+    width: 210px;
+    position: relative;
+    top: 30px;
+}
+
+.tree-2 {
+    width: 200px;
+    position: relative;
+    bottom: 0px;
+}
+
+.tree-1 {
+    width: 240px;
+    position: relative;
+    bottom: 30px;
+}
+
+.bear {
+    width: 13vw;
+    height: 19vh;
+    /* Maintain aspect ratio */
+    position: absolute;
+    left: 30%;
+    top: 80%;
+    background-image: url('../Images/Bear.png');
+    background-size: 240px;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: walkTowardsBaby 10s linear forwards; /* Animate the bear walking */
+}
+
+.stone {
+    position: absolute;
+    bottom: 100px; /* Above the kid */
+    width: 30px;
+    height: 30px;
+    background: gray; /* Simple gray stone */
+    border-radius: 50%;
+    display: none; /* Hidden by default */
+    z-index: 2;
+    transition: transform 1s ease-in-out; /* Smooth throwing animation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Box shadow for stone */
+}
+
+.baby {
+    width: 80px;
+    /* Adjust size as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    position: absolute;
+    right: 5%;
+    bottom: 07%;
+    background-image: url('../Images/Baby.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* Initially not flying */
+    animation: none;
+}
+
+@keyframes walkTowardsBaby {
+    0% {
+        left: 30%; /* Initial position of the bear */
+    }
+
+    100% {
+        left: 75%; /* Target position near the baby */
+    }
+}
+
+/* Flying animation for the baby */
+@keyframes flyToClouds {
+    0% {
+        bottom: 7%; /* Starting position */
+        transform: translateX(0); /* No horizontal movement */
+    }
+
+    100% {
+        bottom: 100%; /* Go to top */
+        transform: translateX(50vw); /* Move horizontally towards the center */
+    }
+}
